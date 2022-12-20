@@ -3,13 +3,13 @@ import apiURL from '../api';
 
 export const Article = (props)=>{
   
-
+  const date = props.article.createdAt.slice(0,10)
   return <div>
     <h4>{props.article.author.name}</h4>
-    <h4>{props.article.createdAt}</h4>
+    <h4>{date}</h4>
     <h4 className='content'>
     {props.article.content}</h4>
-    <button>GO BACK</button>
+    <button onClick = {()=>{props.setArticle(undefined)}}>GO BACK</button>
     
     
   </div>
@@ -30,7 +30,7 @@ export const Page = (props) => {
     <div className='article'>
       
       {
-        article ? <Article article = {article}/> : ""
+        article ? <Article article = {article} setArticle = {setArticle}/> : ""
       }
     </div>
     
